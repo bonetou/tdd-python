@@ -1,4 +1,4 @@
-from dominio import Usuario, Leilao, Lance
+from dominio import Avaliador, Usuario, Leilao, Lance
 
 henrique = Usuario('Henrique')
 maicon = Usuario('Maicon')
@@ -14,4 +14,7 @@ leilao.lances.append(lance_maicon)
 for lance in leilao.lances:
     print(f'O usuário {lance.usuario.nome} deu um lance de {lance.valor}')
 
+avaliador = Avaliador()
+avaliador.avalia(leilao)
 
+print(f'O menor lance foi de {avaliador.menor_lance} e o maior lance foi de {avaliador.maior_lance}')
