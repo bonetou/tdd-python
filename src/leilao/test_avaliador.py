@@ -2,7 +2,7 @@ from unittest import TestCase
 from src.leilao.dominio import Avaliador, Usuario, Leilao, Lance
 
 class TestAvaliador(TestCase):
-    def test_avalia(self):
+    def test_deve_retornar_o_maior_e_o_menor_valor_de_um_lance_quando_adicionados_em_ordem_crescente(self):
         henrique = Usuario('Henrique')
         maicon = Usuario('Maicon')
 
@@ -23,7 +23,7 @@ class TestAvaliador(TestCase):
         self.assertEqual(maior_lance_esperado, avaliador.maior_lance)
         self.assertEqual(menor_lance_esperado, avaliador.menor_lance)
 
-    def test_avalia2(self):
+    def test_deve_retornar_o_maior_e_o_menor_valor_de_um_lance_quando_adicionados_em_ordem_decrescente(self):
         henrique = Usuario('Henrique')
         maicon = Usuario('Maicon')
 
