@@ -17,9 +17,14 @@ class Leilao:
         self.descricao = descricao
         self.__lances = []
 
+    def propoe(self, lance: Lance):
+        self.__lances.append(lance)
+
     @property
     def lances(self):
-        return self.__lances
+        # devolve uma cópia da lista, para não ter a mesma ref
+        # assim, poderemos usar somente o método propoe
+        return self.__lances[:] 
         
 class Avaliador:
     def __init__(self) -> None:
