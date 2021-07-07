@@ -66,14 +66,11 @@ class TestLeilao(TestCase):
         self.leilao.propoe(lance_yuri)
 
         quantidade_de_lances_recebido = len(self.leilao.lances)
-
         self.assertEqual(2, quantidade_de_lances_recebido)
 
     def test_nao_deve_permitir_propor_o_lance_caso_o_ultimo_usuario_for_o_mesmo(self):
         lance_henrique2 = Lance(self.henrique, 200.0)
-        self.leilao.propoe(self.lance_henrique)
-        self.leilao.propoe(lance_henrique2)
-
-        quantidade_de_lances_recebido = len(self.leilao.lances)
-
-        self.assertEqual(1, quantidade_de_lances_recebido)
+        
+        with self.assertRaises(ValueError):
+            self.leilao.propoe(self.lance_henrique)
+            self.leilao.propoe(lance_henrique2)
