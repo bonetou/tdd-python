@@ -2,19 +2,27 @@ import sys
 
 
 class Usuario:
-    def __init__(self, nome):
+    def __init__(self, nome, carteira):
         self.__nome = nome
+        self.__carteira = carteira
 
     @property
     def nome(self):
         return self.__nome
 
+    @property
+    def carteira(self):
+        return self.__carteira
+
+    def propoe_lance(self, leilao, valor):
+        lance = Lance(self, valor)
+        leilao.propoe(lance)
+        self.__carteira -= valor
 
 class Lance:
     def __init__(self, usuario, valor):
         self.usuario = usuario
         self.valor = valor
-
 
 class Leilao:
     def __init__(self, descricao):
